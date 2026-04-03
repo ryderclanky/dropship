@@ -1,0 +1,26 @@
+{
+  "name": "Dropship Guide",
+  "short_name": "Dropship",
+  "description": "Full beginner dropshipping workflow — exact steps, no fluff.",
+  "start_url": "./dropship-guide.html",
+  "display": "standalone",
+  "background_color": "#0e0e0e",
+  "theme_color": "#c8f135",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='24' fill='%230e0e0e'/%3E%3Crect x='24' y='24' width='144' height='144' rx='16' fill='%23161616' stroke='%23c8f135' stroke-width='2'/%3E%3Ctext x='96' y='115' font-family='monospace' font-size='72' font-weight='bold' fill='%23c8f135' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='64' fill='%230e0e0e'/%3E%3Crect x='48' y='48' width='416' height='416' rx='40' fill='%23161616' stroke='%23c8f135' stroke-width='4'/%3E%3Ctext x='256' y='320' font-family='monospace' font-size='220' font-weight='bold' fill='%23c8f135' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "education"],
+  "lang": "en"
+}

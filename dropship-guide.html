@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dropship Guide</title>
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#c8f135">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Dropship Guide">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="description" content="Full beginner dropshipping workflow — exact steps, no fluff.">
+
+<!-- Apple touch icon (inline SVG as data URI) -->
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='24' fill='%230e0e0e'/%3E%3Crect x='24' y='24' width='144' height='144' rx='16' fill='%23161616' stroke='%23c8f135' stroke-width='2'/%3E%3Ctext x='96' y='115' font-family='monospace' font-size='72' font-weight='bold' fill='%23c8f135' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e0e;
+    --surface: #161616;
+    --surface2: #1e1e1e;
+    --border: #2a2a2a;
+    --accent: #c8f135;
+    --accent2: #f1c835;
+    --text: #f0f0f0;
+    --muted: #888;
+    --warn: #f1884a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    padding: 0 0 80px;
+  }
+
+  header {
+    padding: 60px 24px 40px;
+    max-width: 720px;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 6vw, 48px);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  h1 span { color: var(--accent); }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 480px;
+  }
+
+  .guide {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .section {
+    margin-bottom: 48px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .step-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--bg);
+    background: var(--accent);
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+
+  .step-num.warn { background: var(--warn); }
+  .step-num.gold { background: var(--accent2); color: #111; }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .time-tag {
+    margin-left: auto;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+  }
+
+  .section-body {
+    padding: 24px;
+  }
+
+  .step-list {
+    list-style: none;
+    counter-reset: steps;
+  }
+
+  .step-list li {
+    counter-increment: steps;
+    display: flex;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    align-items: flex-start;
+  }
+
+  .step-list li:last-child { border-bottom: none; }
+
+  .step-list li::before {
+    content: counter(steps);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    background: rgba(200, 241, 53, 0.08);
+    border: 1px solid rgba(200, 241, 53, 0.2);
+    min-width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .step-list li strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .sub-list {
+    list-style: none;
+    margin-top: 8px;
+  }
+
+  .sub-list li {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 4px 0 4px 16px;
+    position: relative;
+    border-bottom: none !important;
+    display: block !important;
+  }
+
+  .sub-list li::before {
+    content: '→' !important;
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+    color: var(--accent);
+    background: none !important;
+    border: none !important;
+    width: auto !important;
+    height: auto !important;
+    border-radius: 0 !important;
+    min-width: unset !important;
+    counter-increment: none !important;
+  }
+
+  .code-block {
+    background: #111;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    margin: 12px 0;
+    line-height: 1.8;
+    white-space: pre-wrap;
+  }
+
+  .callout {
+    background: rgba(200, 241, 53, 0.05);
+    border: 1px solid rgba(200, 241, 53, 0.2);
+    border-radius: 8px;
+    padding: 14px 16px;
+    font-size: 13px;
+    margin: 12px 0;
+    color: #cce87a;
+  }
+
+  .callout.warn {
+    background: rgba(241, 136, 74, 0.06);
+    border-color: rgba(241, 136, 74, 0.25);
+    color: #f1c09a;
+  }
+
+  .callout.info {
+    background: rgba(255,255,255, 0.03);
+    border-color: var(--border);
+    color: var(--muted);
+  }
+
+  .callout strong {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 12px 0;
+  }
+
+  .mini-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 13px;
+  }
+
+  .mini-card .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+
+  .mini-card .val {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .ignore-list {
+    list-style: none;
+  }
+
+  .ignore-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .ignore-list li:last-child { border-bottom: none; }
+
+  .ignore-list li::before {
+    content: '✕';
+    color: var(--warn);
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .endstate {
+    background: linear-gradient(135deg, rgba(200,241,53,0.06) 0%, rgba(241,200,53,0.04) 100%);
+    border: 1px solid rgba(200, 241, 53, 0.2);
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+    margin-top: 48px;
+  }
+
+  .endstate h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .endstate-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .pill {
+    background: rgba(200,241,53,0.1);
+    border: 1px solid rgba(200,241,53,0.25);
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    letter-spacing: 0.03em;
+  }
+
+  .divider {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--border);
+    text-align: center;
+    padding: 8px 0;
+    letter-spacing: 0.2em;
+  }
+
+  p.body { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+
+  @media (max-width: 500px) {
+    .two-col { grid-template-columns: 1fr; }
+    .time-tag { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="tag">Complete Beginner Workflow · Dropshipping 2026</span>
+  <h1>Start Your Store.<br><span>Exact Steps. No Fluff.</span></h1>
+  <p class="subtitle">Follow this in order. Don't skip ahead. You can be posting videos and taking orders within 48 hours.</p>
+</header>
+
+<div class="guide">
+
+  <!-- STEP 1 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="step-num">STEP 01</span>
+      <span class="section-title">Create Your Accounts</span>
+      <span class="time-tag">DO THIS FIRST</span>
+    </div>
+    <div class="section-body">
+      <p class="body">Get everything set up before touching products. Don't skip any of these — you'll need them all.</p>
+      <ol class="step-list">
+        <li><span><strong>Shopify</strong> — go to shopify.com → sign up for the $1/month trial (3 months)</span></li>
+        <li><span><strong>Zendrop</strong> — go to zendrop.com → sign up free</span></li>
+        <li><span><strong>DSers</strong> — go to dsers.com → sign up free (backup supplier tool)</span></li>
+        <li><span><strong>CapCut</strong> — download the app on your phone</span></li>
+        <li><span><strong>TikTok</strong> — create a brand new account just for your store</span></li>
+        <li><span><strong>Claude</strong> — keep claude.ai open in your browser the whole time</span></li>
+        <li><span><strong>Shopify Payments</strong> — inside Shopify go to Settings → Payments → set up Shopify Payments or PayPal. <em>Do this now or you can't receive money.</em></span></li>
+      </ol>
+      <div class="callout info">
+        <strong>Note</strong>
+        TikTok requires 1,000 followers before you can add a clickable link in your bio. Build that first. In the meantime, put your store URL in your first pinned comment on every video.
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="step-num">STEP 02</span>
+      <span class="section-title">Find a Product</span>
+      <span class="time-tag">30–60 MIN</span>
+    </div>
+    <div class="section-body">
+      <p class="body">You're looking for a product that's already proven — something people are buying because they saw it on TikTok.</p>
+      <ol class="step-list">
+        <li><span>Open TikTok and search: <strong>"TikTok made me buy it"</strong> or <strong>"[niche] gadget"</strong> (e.g. "car gadget", "kitchen gadget")</span></li>
+        <li><span>Scroll and watch for the same product appearing across multiple different creators' videos</span></li>
+        <li><span>Look for videos with <strong>100k+ views</strong> — that's your proof of demand</span></li>
+        <li><span>When you find a candidate: <strong>save 3–5 supplier videos</strong> from AliExpress or Zendrop directly (not other people's TikToks — more on this below)</span></li>
+        <li><span>Quick gut check: if you can't instantly understand what the product does and why someone would want it → skip it and find another</span></li>
+      </ol>
+      <div class="callout warn">
+        <strong>⚠ Important — Don't Screen Record Other People's TikToks</strong>
+        Reposting another creator's video violates TikTok's Terms of Service and can get your account banned before you've made a single sale. Instead: get video clips directly from your supplier on AliExpress or Zendrop, or use CapCut's free stock footage library. Same end result, no risk.
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="step-num">STEP 03</span>
+      <span class="section-title">Import Product to Your Store</span>
+      <span class="time-tag">20–30 MIN</span>
+    </div>
+    <div class="section-body">
+      <p class="body">Try Zendrop first — it's faster and ships quicker. Use DSers as a backup if you can't find the product.</p>
+      <ol class="step-list">
+        <li><span><strong>Zendrop (try first):</strong> search the product → click "Import to Store" → connect to Shopify if prompted</span></li>
+        <li><span><strong>DSers (backup):</strong> find product on AliExpress through DSers → click "Add to DSers" → push to Shopify</span></li>
+        <li><span>After importing, check the product is live in your Shopify Products tab</span></li>
+      </ol>
+      <div class="callout info">
+        <strong>Supplier Stock Check</strong>
+        Occasionally check your supplier's stock level. If they run out and you keep selling, you'll have angry customers and refund requests. Set a reminder to check weekly.
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="step-num">STEP 04</span>
+      <span class="section-title">Build Your Product Page</span>
+      <span class="time-tag">1–2 HOURS</span>
+    </div>
+    <div class="section-body">
+      <p class="body">Inside Shopify → Products → click your imported product. Edit each section below.</p>
+
+      <div class="divider">— TITLE —</div>
+      <p class="body">Keep it clean and descriptive. No emojis, no gimmicks.</p>
+      <div class="code-block">Example: "Portable Car Cleaning Gel"</div>
+
+      <div class="divider">— DESCRIPTION —</div>
+      <p class="body">Open Claude and paste this prompt:</p>
+      <div class="code-block">Write a high-converting product page for [product name].
+
+Include:
+- A strong opening hook (1–2 sentences)
+- 3–5 benefit-focused bullet points
+- A short "why you need this" paragraph
+- A 3-question FAQ
+
+Keep the tone confident but not salesy. Plain language only.</div>
+      <p class="body" style="margin-top:10px;">Copy the result straight into Shopify.</p>
+
+      <div class="divider">— PRICING —</div>
+      <div class="two-col">
+        <div class="mini-card">
+          <div class="label">Cost under $10</div>
+          <div class="val">3x markup</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px;">$5 cost → sell at $14.99</div>
+        </div>
+        <div class="mini-card">
+          <div class="label">Cost $10–$20</div>
+          <div class="val">2x markup</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px;">$15 cost → sell at $29.99</div>
+        </div>
+        <div class="mini-card">
+          <div class="label">Cost over $20</div>
+          <div class="val">Research first</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px;">Check competitor prices before setting yours</div>
+        </div>
+        <div class="mini-card">
+          <div class="label">Shipping</div>
+          <div class="val">Free shipping</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px;">Bake cost into product price</div>
+        </div>
+      </div>
+
+      <div class="divider">— IMAGES —</div>
+      <ol class="step-list">
+        <li><span>Use supplier images from Zendrop or DSers</span></li>
+        <li><span>Delete any blurry, watermarked, or low-quality images</span></li>
+        <li><span>Keep 3–6 clean images max</span></li>
+      </ol>
+
+      <div class="divider">— SETTINGS —</div>
+      <ol class="step-list">
+        <li><span>Turn <strong>Track Quantity OFF</strong> (dropshipping doesn't need it)</span></li>
+        <li><span>Set shipping to <strong>Free Shipping</strong></span></li>
+      </ol>
+
+      <div class="divider">— STORE SETUP —</div>
+      <ol class="step-list">
+        <li><span>Go to Online Store → Themes → keep the default <strong>Dawn</strong> theme</span></li>
+        <li><span>Click Customize → add your product image and a "Buy Now" button to the homepage. Keep it simple.</span></li>
+        <li><span>Go to Settings → Policies → click <strong>"Generate templates"</strong> → save all</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="step-num">STEP 05</span>
+      <span class="section-title">Create Your Videos</span>
+      <span class="time-tag">1–2 HOURS DAILY</span>
+    </div>
+    <div class="section-body">
+      <p class="body">Use supplier video clips from AliExpress or Zendrop — they're made for this. Edit them in CapCut to make them feel fresh and original.</p>
+      <ol class="step-list">
+        <li><span>Download 3–5 product video clips directly from your supplier listing</span></li>
+        <li><span>Open CapCut → import your clips</span></li>
+        <li><span>Cut any branding, logos, or supplier watermarks</span></li>
+        <li><span>Rearrange clips, add a zoom effect every 1–2 seconds to keep attention</span></li>
+        <li><span>Add big bold captions (CapCut auto-captions work well)</span></li>
+        <li><span>Add a trending audio track from CapCut or TikTok sounds</span></li>
+      </ol>
+
+      <div class="divider">— THE HOOK —</div>
+      <p class="body">The first 2 seconds either keep someone watching or lose them. Open Claude and use this:</p>
+      <div class="code-block">Rewrite this TikTok hook to stop someone mid-scroll. 
+Make it punchy, specific, and under 8 words:
+
+[paste your current hook here]</div>
+      <p class="body" style="margin-top:10px;">Replace your opening text in the video with the new hook.</p>
+
+      <div class="callout">
+        <strong>Ideal video length</strong>
+        7–15 seconds. Short enough to rewatch, long enough to show the product working.
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="step-num">STEP 06</span>
+      <span class="section-title">Post Your Videos</span>
+      <span class="time-tag">DAILY</span>
+    </div>
+    <div class="section-body">
+      <ol class="step-list">
+        <li><span>Upload to TikTok first (highest organic reach)</span></li>
+        <li><span>Then cross-post to Instagram Reels and Facebook Reels</span></li>
+        <li><span>Post 3–5 videos per day, spread out: morning / afternoon / evening</span></li>
+        <li><span>Caption: keep it short and curious — <em>"You didn't know you needed this"</em> / <em>"This changed everything"</em></span></li>
+        <li><span>Reply to every comment for the first hour after posting — it signals engagement to the algorithm</span></li>
+      </ol>
+      <div class="callout info">
+        <strong>Store link in bio</strong>
+        TikTok locks the link-in-bio until 1,000 followers. Until then: paste your URL in the first comment of every video and tell people "link in comments."
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="step-num">STEP 07</span>
+      <span class="section-title">Your Daily Routine</span>
+      <span class="time-tag">REPEAT EVERY DAY</span>
+    </div>
+    <div class="section-body">
+      <p class="body">This is the whole job until you get sales. Simple and repeatable.</p>
+      <ol class="step-list">
+        <li><span>Download 3–5 fresh supplier video clips</span></li>
+        <li><span>Edit into 3–5 videos in CapCut</span></li>
+        <li><span>Use Claude to write hooks and captions</span></li>
+        <li><span>Post all videos spaced out through the day</span></li>
+        <li><span>Reply to every comment</span></li>
+        <li><span>Check Shopify for orders</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- STEP 8 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="step-num">STEP 08</span>
+      <span class="section-title">When You Get a Sale</span>
+      <span class="time-tag">WITHIN 24 HRS</span>
+    </div>
+    <div class="section-body">
+      <ol class="step-list">
+        <li><span>Go to Shopify → Orders → click the order</span></li>
+        <li><span>Open Zendrop or DSers → find the order → click <strong>"Order Product"</strong></span></li>
+        <li><span>Enter the customer's address and pay the supplier cost</span></li>
+        <li><span>The supplier ships directly to your customer — you keep the margin</span></li>
+      </ol>
+      <div class="callout">
+        <strong>Fulfillment tip</strong>
+        Fulfill orders within 24 hours. Customers expect fast communication even if shipping takes time. A quick "your order is confirmed and on its way" message goes a long way.
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 9 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="step-num gold">STEP 09</span>
+      <span class="section-title">When a Video Takes Off — Scale It</span>
+      <span class="time-tag">WHEN READY</span>
+    </div>
+    <div class="section-body">
+      <p class="body">Don't judge a video until 48 hours after posting — TikTok sometimes distributes slowly. If after 48 hours a video has 10k+ views, that's your signal.</p>
+      <ol class="step-list">
+        <li><span>Identify what worked: the hook, the clip, the caption, the audio</span></li>
+        <li><span>Make 5 more videos using the same structure</span></li>
+        <li><span>Keep the same hook style but change the exact wording slightly each time</span></li>
+        <li><span>Don't change the product yet — squeeze everything out of a winner first</span></li>
+      </ol>
+      <div class="callout info">
+        <strong>When to switch products</strong>
+        If you've posted 30+ videos over 2 weeks and nothing is getting traction, try a different product. Don't redesign the store — just swap the product.
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 10 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="step-num warn">STOP</span>
+      <span class="section-title">What to Ignore</span>
+      <span class="time-tag">READ THIS</span>
+    </div>
+    <div class="section-body">
+      <p class="body">Most beginners fail because they do too much of the wrong things. Don't.</p>
+      <ul class="ignore-list">
+        <li>Do not redesign your store every few days</li>
+        <li>Do not wait until your videos feel "perfect"</li>
+        <li>Do not buy extra tools or courses before you've made your first sale</li>
+        <li>Do not run paid ads — you have no data yet, you'll just burn money</li>
+        <li>Do not repost other creators' TikToks — it risks your account</li>
+        <li>Do not give up after 3 days of no sales — this takes consistency</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- END STATE -->
+  <div class="endstate">
+    <h2>Your End State</h2>
+    <p style="color:var(--muted);font-size:14px;max-width:400px;margin:0 auto;">If you follow this daily, within 2–4 weeks you'll have real data, real views, and your first sales. That's when it gets interesting.</p>
+    <div class="endstate-pills">
+      <span class="pill">Posting daily</span>
+      <span class="pill">Testing products</span>
+      <span class="pill">Fulfilling orders</span>
+      <span class="pill">Repeating what works</span>
+      <span class="pill">Building momentum</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- PWA Install Banner -->
+<div id="install-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#161616;border-top:1px solid #2a2a2a;padding:14px 20px;align-items:center;gap:12px;z-index:999;font-family:'DM Sans',sans-serif;">
+  <div style="flex:1;">
+    <div style="font-size:13px;font-weight:500;color:#f0f0f0;">Add to Home Screen</div>
+    <div style="font-size:11px;color:#888;margin-top:2px;">Open this guide offline, anytime</div>
+  </div>
+  <button id="install-dismiss" style="background:none;border:1px solid #2a2a2a;color:#888;padding:6px 12px;border-radius:6px;font-size:12px;cursor:pointer;font-family:'DM Mono',monospace;">Later</button>
+  <button id="install-btn" style="background:#c8f135;color:#0e0e0e;border:none;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Mono',monospace;">Install</button>
+</div>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    });
+  }
+
+  let deferredPrompt;
+  const banner = document.getElementById('install-banner');
+  const installBtn = document.getElementById('install-btn');
+  const dismissBtn = document.getElementById('install-dismiss');
+
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredPrompt = e;
+    banner.style.display = 'flex';
+  });
+
+  installBtn.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    banner.style.display = 'none';
+  });
+
+  dismissBtn.addEventListener('click', () => {
+    banner.style.display = 'none';
+  });
+
+  window.addEventListener('appinstalled', () => {
+    banner.style.display = 'none';
+  });
+</script>
+</body>
+</html>
